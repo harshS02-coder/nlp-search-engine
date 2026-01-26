@@ -3,48 +3,38 @@ export default function ResultCard({ result, index }) {
   
   return (
     <div
-      className="bg-white/5 backdrop-blur-sm border border-purple-400/20 rounded-2xl p-6 
-                 hover:bg-white/10 hover:border-amber-400/40 transition-all duration-300 
-                 hover:scale-[1.02] cursor-pointer animate-fade-in-up
-                 shadow-lg hover:shadow-purple-500/20"
-      style={{ animationDelay: `${index * 0.1}s` }}
+      className="py-5 border-b border-gray-200 hover:bg-gray-50 px-2 rounded-lg transition-colors cursor-pointer"
+      style={{ animationDelay: `${index * 0.05}s` }}
     >
-      {/* Header with title and category */}
-      <div className="flex items-start justify-between mb-3">
-        <h3 className="text-xl font-bold text-white flex-1 pr-4">
-          {result.title || `Document #${result.id}`}
-        </h3>
-        {result.category && (
-          <span className="px-3 py-1 rounded-full text-xs font-medium 
-                         bg-purple-500/20 text-purple-300 border border-purple-400/30
-                         whitespace-nowrap">
-            {result.category}
-          </span>
-        )}
+      {/* Title and URL */}
+      <div className="mb-2">
+        <div className="flex items-start justify-between">
+          <h3 className="text-blue-700 hover:underline text-xl font-normal cursor-pointer">
+            {result.title || `Document #${result.id}`}
+          </h3>
+          {result.category && (
+            <span className="ml-3 px-2 py-0.5 text-xs bg-gray-100 text-gray-600 rounded">
+              {result.category}
+            </span>
+          )}
+        </div>
       </div>
 
-      {/* Content */}
-      <p className="text-slate-300 leading-relaxed mb-4 line-clamp-3">
+      {/* Content Snippet */}
+      <p className="text-gray-700 text-sm leading-relaxed mb-2 line-clamp-2">
         {result.content || "No content preview available."}
       </p>
 
-      {/* Footer with score */}
-      <div className="flex items-center justify-between pt-4 border-t border-white/10">
-        <span className="text-sm text-slate-400">
-          Document ID: <span className="text-amber-300 font-medium">{result.id}</span>
-        </span>
-        
-        <div className="flex items-center space-x-3">
-          <div className="w-32 h-2.5 bg-slate-700/50 rounded-full overflow-hidden">
-            <div 
-              className="h-full bg-gradient-to-r from-purple-500 to-amber-500 rounded-full transition-all duration-500"
-              style={{ width: `${scorePercentage}%` }}
-            ></div>
-          </div>
-          <span className="text-amber-300 text-sm font-semibold min-w-[3rem] text-right">
+      {/* Footer with metadata */}
+      <div className="flex items-center text-xs text-gray-500 space-x-4">
+        <span>Document ID: {result.id}</span>
+        <span>•</span>
+        <span className="flex items-center">
+          Relevance: 
+          <span className="ml-1 font-medium text-green-700">
             {scorePercentage.toFixed(1)}%
           </span>
-        </div>
+        </span>
       </div>
     </div>
   );
