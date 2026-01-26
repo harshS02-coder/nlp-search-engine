@@ -1,0 +1,27 @@
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore environment variables
+.env.example
+
+
+# Ignore Docker-related files
+Dockerfile
+docker-compose.yml
+
+# Ignore version control files
+.git
+.gitignore
+
+# Ignore any local configuration files
+*.local
+
+# Ignore log files
+*.log
+
+# Ignore any other files or directories you want to exclude from the Docker image
+*.tmp
+temp/
+tmp/
