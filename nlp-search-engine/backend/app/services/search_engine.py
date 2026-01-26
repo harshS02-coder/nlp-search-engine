@@ -228,10 +228,10 @@ class SearchEngine:
             Dictionary with search results and metadata
         """
         start_time = time.time()
-        print(f"\n🔍 SEARCH STARTED - Query: '{query}'")
+        print(f"\nSEARCH STARTED - Query: '{query}'")
         
         if not query or not query.strip():
-            print("❌ Empty query received")
+            print("Empty query received")
             return {
                 "query": query,
                 "results": [],

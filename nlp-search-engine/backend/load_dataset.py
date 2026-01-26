@@ -112,14 +112,14 @@ def load_large_dataset(source_path: str, output_path: str, max_documents: int = 
         print(f"{'='*60}\n")
         
     except FileNotFoundError:
-        print(f"❌ Error: File not found at {source_path}")
+        print(f"Error: File not found at {source_path}")
     except json.JSONDecodeError as e:
-        print(f"❌ Error: Invalid JSON format - {e}")
+        print(f"Error: Invalid JSON format - {e}")
     except MemoryError:
-        print(f"❌ Error: File too large for memory. Try using max_documents parameter.")
+        print(f"Error: File too large for memory. Try using max_documents parameter.")
         print(f"   Example: python load_dataset.py {source_path} {output_path} 50000")
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":
@@ -137,14 +137,14 @@ if __name__ == "__main__":
         max_docs = int(sys.argv[3])
     
     print("\n" + "=" * 60)
-    print("📰 News Dataset Loader for NLP Search Engine")
+    print("News Dataset Loader for NLP Search Engine")
     print("=" * 60 + "\n")
     
     load_large_dataset(source, output, max_docs)
     
-    print("\n📋 Usage:")
+    print("\nUsage:")
     print("  python load_dataset.py [source] [output] [max_docs]")
-    print("\n📝 Examples:")
+    print("\nExamples:")
     print("  # Load all articles:")
     print("  python load_dataset.py ../dataset_news.json data/documents.json")
     print("\n  # Load first 50,000 articles:")

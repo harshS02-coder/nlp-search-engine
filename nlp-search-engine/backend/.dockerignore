@@ -3,12 +3,7 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Ignore environment variables
-.env.example
-
-
 # Ignore Docker-related files
-Dockerfile
 docker-compose.yml
 
 # Ignore version control files
@@ -25,3 +20,5 @@ docker-compose.yml
 *.tmp
 temp/
 tmp/
+venv/
+.venv/
